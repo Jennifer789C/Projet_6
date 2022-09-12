@@ -1,0 +1,75 @@
+.entete {
+  background-color: #296391;
+  display: flex;
+  align-items: center;
+}
+.entete a {
+  color: white;
+  text-decoration: none;
+  font-size: x-large;
+  margin-right: 5%;
+}
+.entete__accueil {
+  margin-left: auto;
+}
+
+.meilleur_film {
+  margin-top: 10px;
+  border: 2px black solid;
+  background-image: url("image_du_film"); /* modifier le lien de l'image */
+}
+.meilleur_film a {
+  text-decoration: none;
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+}
+
+.categorie {
+  margin-top: 10px;
+}
+.categorie__titre {
+  text-align: center;
+}
+.categorie__contenu {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.categorie__contenu a {
+  border: 1px grey solid;
+  margin-left: 5px;
+  width: 275px;
+  min-width: 150px;
+  height: 100px;
+}
+
+.modale {
+  visibility: hidden;
+  opacity: 0;
+  background-image: url("image_du_film"); /* modifier le lien de l'image */
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  right: 30%;
+  background-color: white;
+}
+
+.modale:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.fermer_modale {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */
