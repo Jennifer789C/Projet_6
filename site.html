@@ -8,11 +8,11 @@
 </head>
 <body>
     <header>
-        <div class="entete">
-            <img src="logo.png" />
-            <a class="entete__accueil" href=".entete">Accueil</a>
-            <a class="entete__choix" href="#">Catégories</a> <!--modifier le lien -->
-        </div>
+        <img src="logo.png" />
+        <nav>
+            <a href="#">Accueil</a> <!--modifier le lien -->
+            <a href="#">Catégories</a> <!--modifier le lien -->
+        </nav>
     </header>
     <section class="meilleur_film">
         <h1>Titre du meilleur film</h1>
@@ -21,7 +21,7 @@
     </section>
     <section class="categorie films_mieux_notés">
         <h1 class="categorie__titre">Films les mieux notés</h1>
-        <div class="categorie__contenu">
+        <article class="categorie__contenu">
             <a href="#modale"><img src="#" alt="image du film 1" /></a>
             <a href="#modale"><img src="#" alt="image du film 2" /></a>
             <a href="#modale"><img src="#" alt="image du film 3" /></a>
@@ -29,11 +29,11 @@
             <a href="#modale"><img src="#" alt="image du film 5" /></a>
             <a href="#modale"><img src="#" alt="image du film 6" /></a>
             <a href="#modale"><img src="#" alt="image du film 7" /></a>
-        </div>
+        </article>
     </section>
     <section class="categorie films_1">
         <h1 class="categorie__titre">Films de la catégorie 1</h1>   <!-- Modifier le titre de la catégorie -->
-        <div class="categorie__contenu">
+        <article class="categorie__contenu">
             <a href="#modale"><img src="#" alt="image du film 1" /></a>
             <a href="#modale"><img src="#" alt="image du film 2" /></a>
             <a href="#modale"><img src="#" alt="image du film 3" /></a>
@@ -41,11 +41,11 @@
             <a href="#modale"><img src="#" alt="image du film 5" /></a>
             <a href="#modale"><img src="#" alt="image du film 6" /></a>
             <a href="#modale"><img src="#" alt="image du film 7" /></a>
-        </div>
+        </article>
     </section>
     <section class="categorie films_2">
         <h1 class="categorie__titre">Films de la catégorie 2</h1>   <!-- Modifier le titre de la catégorie -->
-        <div class="categorie__contenu">
+        <article class="categorie__contenu">
             <a href="#modale"><img src="#" alt="image du film 1" /></a>
             <a href="#modale"><img src="#" alt="image du film 2" /></a>
             <a href="#modale"><img src="#" alt="image du film 3" /></a>
@@ -53,11 +53,11 @@
             <a href="#modale"><img src="#" alt="image du film 5" /></a>
             <a href="#modale"><img src="#" alt="image du film 6" /></a>
             <a href="#modale"><img src="#" alt="image du film 7" /></a>
-        </div>
+        </article>
     </section>
     <section class="categorie films_3">
         <h1 class="categorie__titre">Films de la catégorie 3</h1>   <!-- Modifier le titre de la catégorie -->
-        <div class="categorie__contenu">
+        <article class="categorie__contenu">
             <a href="#modale"><img src="#" alt="image du film 1" /></a>
             <a href="#modale"><img src="#" alt="image du film 2" /></a>
             <a href="#modale"><img src="#" alt="image du film 3" /></a>
@@ -65,9 +65,9 @@
             <a href="#modale"><img src="#" alt="image du film 5" /></a>
             <a href="#modale"><img src="#" alt="image du film 6" /></a>
             <a href="#modale"><img src="#" alt="image du film 7" /></a>
-        </div>
+        </article>
     </section>
-    <div id="modale" class="modale">
+    <section id="modale" class="modale">
         <a href="#" class="fermer_modale">&times;</a>
         <h1>Titre du film</h1>
         <ul>
@@ -82,12 +82,12 @@
             <li>Résultat au Box Office</li>
             <li>Résumé</li>
         </ul>
-    </div>
+    </section>
     <footer>
-        <div>
+        <p>
             Copyright - Tous droits réservés<br />
             <a href="#">Nous contacter</a>
-        </div>
+        </p>
     </footer>
 </body>
 </html>

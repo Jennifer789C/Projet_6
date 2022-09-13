@@ -1,16 +1,19 @@
-.entete {
+header {
   background-color: #296391;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
-.entete a {
+header nav {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+}
+header a {
   color: white;
   text-decoration: none;
   font-size: x-large;
-  margin-right: 5%;
-}
-.entete__accueil {
-  margin-left: auto;
+  margin: 5%;
 }
 
 .meilleur_film {
