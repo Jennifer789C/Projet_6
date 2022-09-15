@@ -1,3 +1,11 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 header {
   background-color: #296391;
   display: flex;
@@ -7,7 +15,7 @@ header {
 header nav {
   display: flex;
   justify-content: center;
-  width: 500px;
+  width: 31rem;
 }
 header a {
   color: white;
@@ -17,34 +25,70 @@ header a {
 }
 
 .meilleur_film {
-  margin-top: 10px;
-  border: 2px black solid;
+  margin-top: 1rem;
+  border: 0.1rem black solid;
   background-image: url("image_du_film"); /* modifier le lien de l'image */
+}
+.meilleur_film h1, .meilleur_film p {
+  margin-left: 1rem;
 }
 .meilleur_film a {
   text-decoration: none;
   background-color: red;
-  border-radius: 5px;
+  border-radius: 0.25rem;
   color: white;
-  padding: 5px;
+  padding: 0.25rem;
+  margin-left: 5rem;
 }
 
-.categorie {
-  margin-top: 10px;
-}
-.categorie__titre {
+.categorie h1 {
   text-align: center;
 }
+
 .categorie__contenu {
   display: flex;
-  flex-wrap: nowrap;
+  justify-content: center;
+  overflow: hidden;
 }
-.categorie__contenu a {
-  border: 1px grey solid;
-  margin-left: 5px;
-  width: 275px;
-  min-width: 150px;
-  height: 100px;
+.categorie__contenu article {
+  --films-visibles: 6;
+  --liste-index: 0;
+  display: flex;
+  flex-grow: 1;
+  transform: translateX(calc(var(--liste-index) * -100%));
+  transition: transform 250ms ease-in-out;
+}
+.categorie__contenu article a {
+  border: 0.01rem grey solid;
+  flex: 0 0 calc(100% / var(--films-visibles) - 1%);
+  max-width: calc(100% / var(--films-visibles) - 1%);
+  aspect-ratio: 16/9;
+  margin: 0.25rem;
+}
+.categorie__contenu aside {
+  flex-grow: 0;
+  width: 2rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  font-size: 3rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categorie__contenu aside:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 4rem;
+}
+
+.fleche_gauche {
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.fleche_droite {
+  margin: 0.25rem 0 0.25rem 0.25rem;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .modale {
@@ -57,22 +101,33 @@ header a {
   right: 30%;
   background-color: white;
 }
-
 .modale:target {
   visibility: visible;
   opacity: 1;
+  z-index: 2;
 }
 
 .fermer_modale {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0.25rem;
+  right: 0.25rem;
   text-decoration: none;
   color: black;
 }
 
 footer {
-  margin-top: 50px;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1000px) {
+  .categorie__contenu article {
+    --films-visibles: 4;
+  }
+}
+@media (max-width: 500px) {
+  .categorie__contenu article {
+    --films-visibles: 3;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
