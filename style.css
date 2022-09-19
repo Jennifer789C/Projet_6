@@ -24,15 +24,15 @@ header a {
   margin: 5%;
 }
 
-.meilleur_film {
+#meilleur_film {
   margin-top: 1rem;
   border: 0.1rem black solid;
   background-image: url("image_du_film"); /* modifier le lien de l'image */
 }
-.meilleur_film h1, .meilleur_film p {
+#meilleur_film h1, #meilleur_film p {
   margin-left: 1rem;
 }
-.meilleur_film a {
+#meilleur_film a {
   text-decoration: none;
   background-color: red;
   border-radius: 0.25rem;
@@ -82,6 +82,7 @@ header a {
 }
 
 .fleche_gauche {
+  visibility: hidden;
   margin: 0.25rem 0.25rem 0.25rem 0;
   border-radius: 0 0.5rem 0.5rem 0;
 }

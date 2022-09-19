@@ -1,23 +1,23 @@
-document.addEventListener("click", e => {
-    let fleches
-    if (e.target.matches(".fleches")) {
-        fleches = e.target
-    } else {
-        fleches = e.target.closest(".fleches")
-    }
-    if (fleches != null) surFlechesClic(fleches)
-})
+let flecheD = document.querySelector("#films_mieux_notes aside.fleche_droite");
+let flecheG = document.querySelector("#films_mieux_notes aside.fleche_gauche");
+let films = document.querySelector("#films_mieux_notes article.films");
 
-function surFlechesClic(fleches) {
-    const article = fleches.closest(".categorie__contenu").querySelector
-    ("article")
-    const listeIndex = parseInt(getComputedStyle(article).getPropertyValue
-    ("--liste-index"))
-    if (fleches.classList.contains("fleche_gauche")) {
-        article.style.setProperty("--liste-index", listeIndex - 1)
-    }
+flecheD.addEventListener("click", function() {
+    const liste_index = parseInt(getComputedStyle(films).getPropertyValue
+    ("--liste-index"));
+    /* convertit un string en entier + va chercher l'élément HTML
+    "films" et récupère la valeur de la variable CSS "--liste-index" */
+    films.style.setProperty("--liste-index", (liste_index + 1));
+    flecheG.style.visibility = "visible";
+});
 
-    if (fleches.classList.contains("fleche_droite")) {
-        article.style.setProperty("--liste-index", listeIndex + 1)
-    }
-}
+flecheG.addEventListener("click", function() {
+    const liste_index = parseInt(getComputedStyle(films).getPropertyValue
+    ("--liste-index"));
+    if (liste_index != 0) {
+        films.style.setProperty("--liste-index", (liste_index - 1));
+    };
+    if (liste_index == 1) {
+        flecheG.style.visibility = "hidden";
+    };
+});
