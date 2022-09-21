@@ -65,7 +65,7 @@ header a {
   aspect-ratio: 16/9;
   margin: 0.25rem;
 }
-.categorie__contenu aside {
+.categorie__contenu div {
   flex-grow: 0;
   width: 2rem;
   background-color: rgba(0, 0, 0, 0.25);
@@ -76,7 +76,7 @@ header a {
   justify-content: center;
   align-items: center;
 }
-.categorie__contenu aside:hover {
+.categorie__contenu div:hover {
   background-color: rgba(0, 0, 0, 0.5);
   font-size: 4rem;
 }
