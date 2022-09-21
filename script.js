@@ -34,3 +34,20 @@ for (let f of fleches) {
         };
     });
 };
+
+let meilleur_film = document.getElementById("meilleur_film")
+
+fetch ("http://localhost:8000/api/v1/titles/8571428")
+    .then (function(res) {
+        if (res.ok) {
+            return res.json();
+        };
+    })
+    .then (function(value) {
+        meilleur_film.querySelector("h1").innerText = value.title;
+        meilleur_film.querySelector("p").innerText = value.description;
+        meilleur_film.style.backgroundImage = 'url("'+ value.image_url +'")';
+    })
+    .catch (function(err) {
+        console.log("Une erreur ressort de la requête")
+    });

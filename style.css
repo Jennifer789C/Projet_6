@@ -27,10 +27,16 @@ header a {
 #meilleur_film {
   margin-top: 1rem;
   border: 0.1rem black solid;
-  background-image: url("image_du_film"); /* modifier le lien de l'image */
+  aspect-ratio: 16/9;
+  color: white;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 100%;
+  object-fit: contain;
 }
 #meilleur_film h1, #meilleur_film p {
   margin-left: 1rem;
+  max-width: 40%;
 }
 #meilleur_film a {
   text-decoration: none;
