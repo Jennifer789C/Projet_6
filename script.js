@@ -60,8 +60,25 @@ function infos_modale(value) {
     modale.querySelector("img").src = value.image_url;
 };
 
+function infos_film(num_film, html_film) {
+// recherche des informations spécifiques à ce film
+    fetch("http://localhost:8000/api/v1/titles/" + num_film)
+    .then (function(res) {
+        if (res.ok) {
+            return res.json();
+        };
+    })
+    .then (function(value) {
+        html_film.style.backgroundImage = 'url("' + value.image_url + '")';
+        infos_modale(value);
+    })
+    .catch (function(err) {
+        console.log("Une erreur ressort de la requête du film")
+    });
+};
 
 let meilleur_film = document.getElementById("meilleur_film");
+let mieux_notes = document.querySelectorAll("#films_mieux_notes .films a")
 
 fetch ("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
 // recherche du meilleur film en les filtrant par leur score imdb
@@ -71,10 +88,9 @@ fetch ("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
         };
     })
     .then (function(value) {
-        let film = value.results[0].id;
+        let num_film = value.results[0].id;
         // isole l'id du meilleur film
-        fetch("http://localhost:8000/api/v1/titles/" + film)
-        // recherche des informations spécifiques à ce film
+        fetch("http://localhost:8000/api/v1/titles/" + num_film)
             .then (function(res) {
                 if (res.ok) {
                     return res.json();
@@ -83,13 +99,38 @@ fetch ("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
             .then (function(value) {
                 meilleur_film.querySelector("h1").innerText = value.title;
                 meilleur_film.querySelector("p").innerText = value.description;
-                meilleur_film.style.backgroundImage = 'url("' + value.image_url + '")';
+                meilleur_film.style.backgroundImage = 'url("' + value.
+                    image_url + '")';
                 infos_modale(value);
             })
             .catch (function(err) {
-                console.log("Une erreur ressort de la requête du film")
+                console.log("Une erreur ressort de la requête du meilleur " +
+                "film")
             });
+        for (let i = 0; i < 4; i++) {
+            infos_film(value.results[i+1].id, mieux_notes[i])
+        };
     })
     .catch (function(err) {
-        console.log("Une erreur ressort de la requête de l'id")
+        console.log("Une erreur ressort de la requête des films filtrés par "
+            + "score imdb (page 1)")
     });
+
+fetch ("http://localhost:8000/api/v1/titles/?page=2&sort_by=-imdb_score")
+    .then (function(res) {
+        if (res.ok) {
+            return res.json();
+        };
+    })
+    .then (function(value) {
+        for (let i = 0; i < 3; i++) {
+            infos_film(value.results[i].id, mieux_notes[i+4]);
+        };
+    })
+    .catch (function(err) {
+        console.log("Une erreur ressort de la requête des films filtrés par "
+            + "score imdb (page 2)")
+    });
+
+let genres = [action, comedy, sci-fy];
+

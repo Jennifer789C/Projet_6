@@ -66,6 +66,7 @@ header a {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  height: 15rem;
 }
 .categorie__contenu article {
   --films-visibles: 6;
@@ -74,13 +75,17 @@ header a {
   flex-grow: 1;
   transform: translateX(calc(var(--liste-index) * -100%));
   transition: transform 250ms ease-in-out;
+  max-height: 91%;
 }
 .categorie__contenu article a {
   border: 0.01rem grey solid;
   flex: 0 0 calc(100% / var(--films-visibles) - 1%);
   max-width: calc(100% / var(--films-visibles) - 1%);
-  aspect-ratio: 16/9;
   margin: 0.25rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  object-fit: contain;
 }
 .categorie__contenu div {
   flex-grow: 0;
@@ -92,6 +97,7 @@ header a {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: 88%;
 }
 .categorie__contenu div:hover {
   background-color: rgba(0, 0, 0, 0.5);
@@ -156,6 +162,10 @@ footer {
 @media (max-width: 1000px) {
   .categorie__contenu article {
     --films-visibles: 4;
+    max-height: 63%;
+  }
+  .categorie__contenu div {
+    max-height: 60%;
   }
 }
 @media (max-width: 500px) {
