@@ -35,19 +35,61 @@ for (let f of fleches) {
     });
 };
 
-let meilleur_film = document.getElementById("meilleur_film")
+let modale = document.getElementById("modale");
+function infos_modale(value) {
+    modale.querySelector("h1").innerText = value.title;
+    modale.querySelector("#genre").innerText = "Genre : " + value.genres;
+    modale.querySelector("#sortie").innerText = "Date de sortie : " + value
+        .date_published;
+    modale.querySelector("#evaluation").innerText = "Evalué : " + value
+        .rated;
+    modale.querySelector("#imdb").innerText = "Score imdb : " + value
+        .imdb_score;
+    modale.querySelector("#realisateur").innerText = "Réalisateur : " +
+        value.directors;
+    modale.querySelector("#acteurs").innerText = "Acteurs : " + value
+        .actors;
+    modale.querySelector("#duree").innerText = "Durée : " + value.duration
+        + " min";
+    modale.querySelector("#pays").innerText = "Pays d'origine : " + value
+        .countries;
+    modale.querySelector("#box_office").innerText = "Résultat au Box " +
+        "Office : " + value.metascore;
+    modale.querySelector("#resume").innerText = "Résumé : " + value
+        .long_description;
+    modale.querySelector("img").src = value.image_url;
+};
 
-fetch ("http://localhost:8000/api/v1/titles/8571428")
+
+let meilleur_film = document.getElementById("meilleur_film");
+
+fetch ("http://localhost:8000/api/v1/titles/?sort_by=-imdb_score")
+// recherche du meilleur film en les filtrant par leur score imdb
     .then (function(res) {
         if (res.ok) {
             return res.json();
         };
     })
     .then (function(value) {
-        meilleur_film.querySelector("h1").innerText = value.title;
-        meilleur_film.querySelector("p").innerText = value.description;
-        meilleur_film.style.backgroundImage = 'url("'+ value.image_url +'")';
+        let film = value.results[0].id;
+        // isole l'id du meilleur film
+        fetch("http://localhost:8000/api/v1/titles/" + film)
+        // recherche des informations spécifiques à ce film
+            .then (function(res) {
+                if (res.ok) {
+                    return res.json();
+                };
+            })
+            .then (function(value) {
+                meilleur_film.querySelector("h1").innerText = value.title;
+                meilleur_film.querySelector("p").innerText = value.description;
+                meilleur_film.style.backgroundImage = 'url("' + value.image_url + '")';
+                infos_modale(value);
+            })
+            .catch (function(err) {
+                console.log("Une erreur ressort de la requête du film")
+            });
     })
     .catch (function(err) {
-        console.log("Une erreur ressort de la requête")
+        console.log("Une erreur ressort de la requête de l'id")
     });

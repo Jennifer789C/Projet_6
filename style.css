@@ -11,28 +11,37 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 3rem;
+}
+header img {
+  object-fit: contain;
+  height: 100%;
 }
 header nav {
   display: flex;
   justify-content: center;
-  width: 31rem;
+  width: 15rem;
 }
 header a {
   color: white;
   text-decoration: none;
-  font-size: x-large;
+  font-size: large;
   margin: 5%;
 }
 
 #meilleur_film {
-  margin-top: 1rem;
   border: 0.1rem black solid;
   aspect-ratio: 16/9;
+  max-height: 35rem;
+  margin: 0 auto;
   color: white;
   background-repeat: no-repeat;
   background-position: right;
   background-size: 100%;
   object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #meilleur_film h1, #meilleur_film p {
   margin-left: 1rem;
@@ -44,6 +53,8 @@ header a {
   border-radius: 0.25rem;
   color: white;
   padding: 0.25rem;
+  width: 5.6rem;
+  opacity: .9;
   margin-left: 5rem;
 }
 
@@ -101,11 +112,11 @@ header a {
 .modale {
   visibility: hidden;
   opacity: 0;
-  background-image: url("image_du_film"); /* modifier le lien de l'image */
+  border: 0.1rem black solid;
   position: absolute;
-  top: 30%;
-  left: 30%;
-  right: 30%;
+  top: 50%;
+  left: 10%;
+  right: 10%;
   background-color: white;
 }
 .modale:target {
@@ -113,13 +124,29 @@ header a {
   opacity: 1;
   z-index: 2;
 }
+.modale h1 {
+    margin-left: 1rem;
+}
+.modale img {
+  float: right;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.modale ul {
+  list-style-type: circle;
+}
+.modale li {
+  margin-bottom: 0.1rem;
+}
 
 .fermer_modale {
   position: absolute;
   top: 0.25rem;
-  right: 0.25rem;
+  right: 0.5rem;
   text-decoration: none;
   color: black;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 footer {
