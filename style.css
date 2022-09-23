@@ -57,6 +57,9 @@ header a {
   opacity: .9;
   margin-left: 5rem;
 }
+#meilleur_film span {
+  visibility: hidden;
+}
 
 .categorie h1 {
   text-align: center;
@@ -86,6 +89,9 @@ header a {
   background-position: center;
   background-size: 100%;
   object-fit: contain;
+}
+.categorie__contenu span {
+  visibility: hidden;
 }
 .categorie__contenu div {
   flex-grow: 0;
