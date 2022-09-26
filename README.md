@@ -1,10 +1,10 @@
 # OpenClassRooms - Python - Projet 6 : JustStreamIt
 
 Ce projet consiste à créer un site de streaming inspiré de Netflix :
-	- utilisation des langages HTML5 et CSS3,
-	- utilisation de JavaScript pour dynamiser le site,
-	- mise en place de carousels,
-	- mise en place d'une page modale,
+	- utilisation des langages HTML5 et CSS3,  
+	- utilisation de JavaScript pour dynamiser le site,  
+	- mise en place de carousels,  
+	- mise en place d'une page modale,  
 	- récupération des données sur une API.
 
 ## Application du script
