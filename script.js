@@ -130,7 +130,7 @@ function infos_modale(value) {
     modale.querySelector("#pays").innerText = "Pays d'origine : " + value
         .countries;
     modale.querySelector("#box_office").innerText = "Résultat au Box " +
-        "Office : " + value.metascore;
+        "Office : " + value.worldwide_gross_income;
     modale.querySelector("#resume").innerText = "Résumé : " + value
         .long_description;
     modale.querySelector("img").src = value.image_url;
